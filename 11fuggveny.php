@@ -34,7 +34,7 @@
         echo "<tr>";
         echo "<td>Termék neve</td>
               <td>Termék típusa</td>
-              <td>Nettó<td>
+              <td>Nettó</td>
               <td>Áfa</td>
               <td>Bruttó</td>";
         echo "</tr>";
