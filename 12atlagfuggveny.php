@@ -3,17 +3,7 @@
     ini_set('display_errors' , '1');
 ?>
 <?php
-    //Átlagszámítás jegyekből
-    function atlagSz(&$tomb)
-    {
-        $osszes = 0;
-        $jegyek = explode(' ' , $tomb);
-        for ($i = 0;$i<count($jegyek);$i++)
-        {
-            $osszes += $jegyek[$i];
-        }
-        return ($osszes / count($jegyek)*1.0);
-    }
+    require_once("12atlagszamfugg.php");
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -29,7 +19,8 @@
             }
             else {
                 $tomb = $_POST["szoveg"];
-                echo "Jegyedi átlaga: ". $atlagSz($tomb);
+                $tomb = trim($tomb);
+                echo "Jegyeid átlaga: ". atlagSz($tomb);
             }
         ?>
     </body>
