@@ -12,9 +12,18 @@
     <body>
         <?php
             $sanyi = new tanulo("Sanyi");
-            $sanyi->jegyetKap(4);
-            $sanyi->jegyetKap(3);
+            echo $sanyi->nev;
+            echo "<br>";
+            for($i = 0; $i<5;$i++){
+                $random = rand(1,5);
+                $sanyi->jegyetKap($random);
+                echo $random.", ";
+            }
+            /*$sanyi->jegyetKap(4);
+            $sanyi->jegyetKap(3);*/
             $sanyi->atlagszam();
+            echo "<br>";
+            echo $sanyi->atlag;
             echo "<pre>";
             var_dump($sanyi);
             echo "</pre>";
