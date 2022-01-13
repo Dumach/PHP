@@ -26,20 +26,10 @@
             for($i = 0; $i < count($this->adat); $i++)
             {
                 echo "<tr>";
-                /*for($h = 0; $h < count($this->adat[$i]); $h++)
-                {
-                    echo "<td>".$this->adat[$i][$h]."</td>";
-                }*/
-
                 foreach ($this->adat[$i] as $item)
                 {
                     echo "<td>".$item."</td>";
                 }
-
-                /*foreach ($this->adat[$i] as $kulcs => $ertek)
-                {
-                    echo "<td>".$kulcs."</td>";
-                }*/
                 echo "</tr>";
             }
             echo "</table>";

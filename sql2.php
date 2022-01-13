@@ -1,6 +1,7 @@
 <?php 
   error_reporting(E_ALL);
   ini_set('display_errors', '1');
+  require_once("connection.php");
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -10,8 +11,6 @@
  </head>
  <body>
    <?php
-    $adatbazis = new mysqli("localhost" , "tanulo8" , "qwertz" , "tanulo8_proba");
-    $adatbazis->query("SET NAMES utf8");
     $lekerdezes = "SELECT * FROM tanulo";
     $eredmeny = $adatbazis->query($lekerdezes);
     echo "Lekérdezés eredmény-objektum kiíratása<br />";
