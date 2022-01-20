@@ -37,9 +37,8 @@
                     echo "<td>A tanuló neve</td>";
                     echo "<td>";
                         echo "<select name='tanuloNev'";
-                        for($i=0;$i<count($tanulok)-1;$i++)
+                        for($i=-1;$i<count($tanulok)-1;$i++)
                         {
-
                             echo "<option>".$tanulok[$i]['nev']."</option>";
                         }
                         echo "</select>";
@@ -47,9 +46,9 @@
                     echo "<td>A tantárgy neve</td>";
                     echo "<td>";
                         echo "<select name='tantargyNev'";
-                        for($i=0;$i<count($tantargyak)-1;$i++)
+                        for($k=-1;$k<count($tantargyak)-1;$k++)
                         {
-                            echo "<option>".$tantargyak[$i]['nev']."</option>";
+                            echo "<option>".$tantargyak[$k]['nev']."</option>";
                         }
                         echo "</select>";
                     echo "</td>";    
