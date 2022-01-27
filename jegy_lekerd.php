@@ -24,14 +24,14 @@
             $eredmeny2 = $adatbazis->query($tantargylekedzes);
             while($tantargyak[] = $eredmeny2->fetch_array(MYSQLI_ASSOC));            
             
-            echo "<pre>";
+            /*echo "<pre>";
             print_r($tantargyak);
-            echo "</pre>";
+            echo "</pre>";*/
 
             echo "<h3>Űrlap osztályzatok lekérdezéséhez</h3>";
             echo "<p>Válassza ki a tanulót és a tantárgyat</p>";
 
-            echo "<form method='post' action='urlap_sql_program.php'>";
+            echo "<form method='post' action='jegy_lekerd_program.php'>";
             echo "<table>";
                 echo "<tr>";
                     echo "<td>A tanuló neve</td>";

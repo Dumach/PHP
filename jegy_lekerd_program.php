@@ -33,13 +33,13 @@
                     inner join tantargy on tantargy.id=osztalyzat.tantargyID 
                 WHERE tantargy.nev = '$tantargy' AND tanulo.nev = '$nev'";
                 $eredmeny = $adatbazis->query($lekerdezes);
-                echo "Lekérdezés eredmény-objektum kiíratása<br />";
+                /*echo "Lekérdezés eredmény-objektum kiíratása<br />";
                 echo "<pre>";
                 print_r($eredmeny);
-                echo "</pre>";
+                echo "</pre>";*/                            
 
                 while($sorok[]=$eredmeny->fetch_array(MYSQLI_ASSOC));
-                echo "Eredmény áttöltése tömbbe<br/>";
+                //echo "Eredmény áttöltése tömbbe<br/>";
                 unset($sorok[count($sorok)-1]);
                 $tabla = new tablazat(1 , $sorok);
                 $tabla->kiir();
