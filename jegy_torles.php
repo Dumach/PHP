@@ -74,6 +74,23 @@
                     echo "<p>".$adatbazis->error."</p>";
                 }
             }
+
+            /*if(isset($_POST["torles"]))
+            {
+                $id = $_POST["torles"];
+                $jegyID = $sorok[$id][0];
+                $torles = "DELETE FROM osztalyzat WHERE id='".$jegyID."'";
+                if($adatbazis->query($torles))
+                {
+                    echo "<p>Az előző törlés sikeres volt!</p>";
+                }
+                else
+                {
+                    echo "<p>Az előző törlés nem sikerült!</p>";
+                    echo "<p>".$adatbazis->error."</p>";
+                }
+            }*/
+
             echo "<p>Válassza ki a tanulót és a tantárgyat</p>";
 
             echo "<form method='post' action='#'>";
