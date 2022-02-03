@@ -28,14 +28,33 @@
                 WHERE tanulo.nev='$tanuloNev' AND tantargy.nev='$tantargyNev'
                 ORDER BY osztalyzat.datum";
                 $eredmeny = $adatbazis->query($lekerdezes);
-                if(!$adatbazis->error)
+                if(!$adatbazis->error || $eredmeny!="")
                 {
                     while($sorok[]=$eredmeny->fetch_array(MYSQLI_ASSOC));
                     unset($sorok[count($sorok)-1]);
+                    echo "<table>";
+                        echo "<tr>";
+                            echo"<td>";
                     $tablazat = new tablazat(1, $sorok);
                     $tablazat->kiir();  
-
-                    echo "<form method='post' action='#'>";
+                            echo"</td>";
+                            echo"<td>";
+                            echo"<table>";
+                                echo"<tr><td><br></td></tr>";
+                                for($i=0;$i < count($sorok);$i++)
+                                {
+                                    echo "<tr>";
+                                        echo "<td>";
+                                        echo "<form method='post' action='#'>";
+                                        $s = $sorok[$i]['id'];
+                                        echo "<input type='submit' name='torles' value='$s'>";
+                                        echo "</td>";
+                                    echo "</tr>";
+                                }
+                            echo "</table>";
+                        echo "</tr>";
+                    echo "</table>";
+                    /*echo "<form method='post' action='#'>";
                         echo "<select name='jegyID'>";
                             for($i=0;$i<count($sorok);$i++)
                             {
@@ -43,7 +62,7 @@
                             }
                         echo "</select>";
                         echo "<input type='submit' name='torles' value='Jegy torlese'>";
-                    echo "</form>";
+                    echo "</form>";*/
                 }
             }
 
@@ -55,12 +74,8 @@
             $eredmeny2 = $adatbazis->query($tantargylekedzes);
             while($tantargyak[] = $eredmeny2->fetch_array(MYSQLI_ASSOC));            
             
-            /*echo "<pre>";
-            print_r($tantargyak);
-            echo "</pre>";*/
-
             echo "<h3>Program jegyek törléséhez</h3>";
-            if(isset($_POST["torles"]))
+            /*if(isset($_POST["torles"]))
             {
                 $id = $_POST["jegyID"];
                 $torles = "DELETE FROM osztalyzat WHERE id='".$id."'";
@@ -73,13 +88,12 @@
                     echo "<p>Az előző törlés nem sikerült!</p>";
                     echo "<p>".$adatbazis->error."</p>";
                 }
-            }
+            }*/
 
-            /*if(isset($_POST["torles"]))
+            if(isset($_POST["torles"]))
             {
-                $id = $_POST["torles"];
-                $jegyID = $sorok[$id][0];
-                $torles = "DELETE FROM osztalyzat WHERE id='".$jegyID."'";
+                $id = intval($_POST["torles"]);
+                $torles = "DELETE FROM osztalyzat WHERE id='".$id."'";
                 if($adatbazis->query($torles))
                 {
                     echo "<p>Az előző törlés sikeres volt!</p>";
@@ -89,7 +103,7 @@
                     echo "<p>Az előző törlés nem sikerült!</p>";
                     echo "<p>".$adatbazis->error."</p>";
                 }
-            }*/
+            }
 
             echo "<p>Válassza ki a tanulót és a tantárgyat</p>";
 

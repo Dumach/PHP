@@ -30,10 +30,6 @@
                 {
                     echo "<td>".$item."</td>";
                 }
-                echo "<td>";
-                    echo "<form method='post' action='jegy_torles.php'>";
-                    echo "<input type='submit' name='torles' value='$i'>";
-                echo "</td>";
                 echo "</tr>";
             }
             echo "</table>";
